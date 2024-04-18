@@ -4,6 +4,8 @@
   --header-color: rgba(214, 231, 255, 1);
   --primary-color: rgba(0, 5, 11, 1);
   --secondary-color: rgba(29, 92, 186, 1);
+  --additional-color: rgba(149, 156, 168, 1);
+  --hover-card-color: rgba(241, 242, 248, 1);
 
   /* size */
   --navbar-height: 80px;
@@ -17,9 +19,7 @@
 
 html,
 body {
-  /* max-width: calc(100vw - var(--navbar-height)); */
-  max-height: calc(100vh - var(--navbar-height));
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {

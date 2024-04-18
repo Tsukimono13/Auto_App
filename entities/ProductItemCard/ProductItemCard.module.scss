@@ -1,0 +1,19 @@
+.card {
+    width: 240px;
+    height: 221px;
+    padding: 30px 24px;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--hover-card-color);
+        transform: scale(1.01);
+    }
+
+}
+
+.content {
+    h3 {
+        margin: 12px 0 8px 0;
+    }
+}

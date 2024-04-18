@@ -42,12 +42,16 @@
     gap: 6px;
 }
 
+.gap8 {
+    gap: 8px;
+}
+
 .gap20 {
     gap: 20px;
 }
 
 .wrap {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .max {

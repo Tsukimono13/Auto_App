@@ -1,0 +1,17 @@
+.icon {
+    margin-bottom: 32px;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.characteristics {
+    margin: 36px 0 8px 0;
+}
+
+.desc {
+    display: flex;
+    gap: 4;
+    margin-top: 8px;
+}

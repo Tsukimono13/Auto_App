@@ -1,0 +1,28 @@
+.Card {
+}
+
+.normal {
+    background-color: var(--background-color);
+}
+
+.tab,
+.selected {
+padding: 6px 20px;
+border-radius: 4px;
+}
+
+.selected {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.tab {
+    background-color: var(--hover-card-color);
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+.max {
+    width: 100%;
+}

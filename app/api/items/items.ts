@@ -9,7 +9,7 @@ export const items = [
         brand: 'Mercedes',
         model: 'EQS Sedan',
         color: 'Черный',
-        price: '19 500 000 ₽',
+        price: 19500000,
         year: 2023,
         engine: {
             type: 'Бензин',
@@ -21,12 +21,12 @@ export const items = [
         title: "Audi A6",
         img: {
             small: '/assets/img/small/Audi_A6Small.png',
-            big: '/assets/img/big/Audi_A6SmallBig.png',
+            big: '/assets/img/big/Audi_A6Big.png',
         },
         brand: 'Audi',
         model: 'A6',
         color: 'Серый металлик',
-        price: '7 000 000 ₽',
+        price: 7000000,
         year: 2022,
         engine: {
             type: 'Бензин',
@@ -43,7 +43,7 @@ export const items = [
         brand: 'BMW',
         model: '7 series sedan',
         color: 'Белый',
-        price: '10 800 000 ₽',
+        price: 10800000,
         year: 2024,
         engine: {
             type: 'Бензин',
@@ -55,12 +55,12 @@ export const items = [
         title: "Mercedes AMG SL",
         img: {
             small: '/assets/img/small/Mercedes_AMG_SLSmall.png',
-            big: '/assets/img/big/Mercedes_AMG_SLSBig.png',
+            big: '/assets/img/big/Mercedes_AMG_SLBig.png',
         },
         brand: 'Mercedes',
         model: 'AMG SL',
         color: 'Желтый',
-        price: '25 400 000 ₽',
+        price: 25400000,
         year: 2023,
         engine: {
             type: 'Бензин',
@@ -77,7 +77,7 @@ export const items = [
         brand: 'Opel',
         model: 'Mokka',
         color: 'Белый',
-        price: '2 900 000 ₽',
+        price: 2900000,
         year: 2024,
         engine: {
             type: 'Бензин',
@@ -94,7 +94,7 @@ export const items = [
         brand: 'Mercedes',
         model: 'AMG GT',
         color: 'Синий',
-        price: '23 800 000 ₽',
+        price: 23800000,
         year: 2024,
         engine: {
             type: 'Бензин',
@@ -111,7 +111,7 @@ export const items = [
         brand: 'Opel',
         model: 'Crossland',
         color: 'Красный',
-        price: '3 200 000 ₽',
+        price: 3200000,
         year: 2023,
         engine: {
             type: 'Бензин',
@@ -123,12 +123,12 @@ export const items = [
         title: "BMW Z4",
         img: {
             small: '/assets/img/small/BMW Z4Small.png',
-            big: '/assets/img/big/BMW Z4SBig.png',
+            big: '/assets/img/big/BMW Z4Big.png',
         },
         brand: 'BMW',
         model: 'Z4',
         color: 'Черный',
-        price: '5 600 000 ₽',
+        price: 5600000,
         year: 2020,
         engine: {
             type: 'Бензин',
@@ -145,7 +145,7 @@ export const items = [
         brand: 'Mercedes',
         model: 'Maybach',
         color: 'Синий',
-        price: '30 700 000 ₽',
+        price: 30700000,
         year: 2024,
         engine: {
             type: 'Бензин',
@@ -162,7 +162,7 @@ export const items = [
         brand: 'Opel',
         model: 'Mokka',
         color: 'Зеленый',
-        price: '3 400 000 ₽',
+        price: 3400000,
         year: 2024,
         engine: {
             type: 'Электрический',
@@ -179,7 +179,7 @@ export const items = [
         brand: 'Audi',
         model: 'Mokka',
         color: 'Серый металлик',
-        price: '9 100 000 ₽',
+        price: 9100000,
         year: 2023,
         engine: {
             type: 'Электрический',
@@ -196,7 +196,7 @@ export const items = [
         brand: 'Opel',
         model: 'Mokka',
         color: 'Серый металлик',
-        price: '3 100 000 ₽',
+        price: 3100000,
         year: 2023,
         engine: {
             type: 'Дизель',

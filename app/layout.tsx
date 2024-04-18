@@ -13,11 +13,8 @@ export const metadata: Metadata = {
   description: "Here you can find your favorite car",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children, }: Readonly<{children: React.ReactNode;}>) {
+
   return (
     <html lang="en">
       <body className={roboto.className}>

@@ -1,13 +1,15 @@
+import { DetailedProductItem } from "@/entities/DetailedProductItem/DetailedProductItem";
 import { axiosInstance } from "@/lib/axios";
+import { ProductItem } from "@/lib/types/item";
 import { Metadata } from "next";
 import { title } from "process";
 
 const fetchItemById = async (id: string) => {
   try {
-    const response = await axiosInstance.get(`/api/items/${id}`);
+    const response = await axiosInstance.get<ProductItem>(`/api/items/${id}`);
     return response.data;
   } catch (error) {
-    throw new Error('Не удалось получить информацию о продукте');
+    throw new Error("Не удалось получить информацию о продукте");
   }
 };
 
@@ -23,7 +25,8 @@ export async function generateMetadata(
   const {
     params: { id },
   } = props;
-  const item = await fetchItemById(id)
+  
+  const item = await fetchItemById(id);
   return {
     title: item.title,
   };
@@ -33,12 +36,8 @@ export default async function DetailedItem(props: DetailedItemProps) {
   const {
     params: { id },
   } = props;
-  const item = await fetchItemById(id)
-  return (
-    <div>
-      Item details {id}
-          <h2>{item.title}</h2>
-          <h4>{item.desc}</h4>
-    </div>
-  );
+
+  const item = await fetchItemById(id);
+
+  return <DetailedProductItem item={item} />;
 }
