@@ -5,8 +5,8 @@ import { Mods, classNames } from "@/lib/classNames/classNames";
 export enum ThemeButton {
   PRIMARY = "primary",
   SECONDARY = "secondary",
+  CLEAR = 'clear'
 }
-
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;

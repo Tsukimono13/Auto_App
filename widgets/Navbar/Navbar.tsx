@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React from "react";
 import cls from "./Navbar.module.scss";
@@ -8,7 +8,7 @@ import { Button, ThemeButton } from "@/components/Button/Button";
 import { useRouter } from "next/navigation";
 
 export const Navbar = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <header className={cls.Navbar}>
       <Link href={"/"}>
@@ -21,10 +21,16 @@ export const Navbar = () => {
         />
       </Link>
       <HStack gap="20">
-        <Button theme={ThemeButton.PRIMARY} onClick={() => router.push('/')}>Войти</Button>
-        <Button theme={ThemeButton.SECONDARY}>Разместить объявление</Button>
+        <Button theme={ThemeButton.PRIMARY} onClick={() => router.push("/login")}>
+          Войти
+        </Button>
+        <Button
+          theme={ThemeButton.SECONDARY}
+          onClick={() => router.push("/advertisement")}
+        >
+          Разместить объявление
+        </Button>
       </HStack>
-      {/* <Link href={"/products"}>Products</Link> */}
     </header>
   );
 };

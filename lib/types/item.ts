@@ -3,8 +3,8 @@ type ImgSizeType = {
   big: string;
 };
 
-type EngineType = "Бензин" | "Электрический" | "Дизель";
-type TransmissionType = "Ручная" | "Автомат";
+export type EngineType = "Бензин" | "Электрический" | "Дизель";
+export type TransmissionType = "Ручная" | "Автомат";
 
 interface EngineDescription {
   type: EngineType;

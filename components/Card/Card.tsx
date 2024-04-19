@@ -7,7 +7,7 @@ import { classNames } from '@/lib/classNames/classNames';
 export enum CardTheme {
     NORMAL = 'normal',
     SELECTED = 'selected',
-    TAB = 'tab'
+    TAB = 'tab',
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement>{

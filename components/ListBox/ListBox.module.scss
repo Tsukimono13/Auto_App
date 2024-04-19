@@ -1,0 +1,54 @@
+.trigger {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    font-family: "Lato", sans-serif;
+    border-radius: 4px;
+    font-weight: 700;
+    line-height: 17px;
+    font-size: 15px;
+}
+
+.options {
+    position: absolute;
+    z-index: 10000;
+    background-color: var(--background-color);
+    border-radius: 4px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.08);
+    flex-wrap: nowrap;
+    width: 300px;
+    cursor: pointer;
+    padding: 24px 0;
+
+    li {
+        list-style: none;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20.8px;
+        letter-spacing: 0.01em;
+    }
+}
+
+.item {
+    padding: 5px 20px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+}
+
+.popup {
+    position: relative;
+}
+
+.active {
+    background-color: var(--hover-card-color);
+}

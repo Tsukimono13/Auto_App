@@ -5,7 +5,7 @@ import { Mods, classNames } from '@/lib/classNames/classNames';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
-export type FlexGap = '6' | '8' | '20';
+export type FlexGap = '6' | '8' | '20' | '24';
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
@@ -29,6 +29,7 @@ const gapClasses: Record<FlexGap, string> = {
     6: cls.gap6,
     8: cls.gap8,
     20: cls.gap20,
+    24: cls.gap24,
 };
 
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;

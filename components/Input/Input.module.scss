@@ -1,0 +1,25 @@
+.InputWrapper {
+    display: flex;
+}
+
+.input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-shadow: 0 0 0 var(--primary-color);
+
+    &::placeholder {
+        color: var(--additional-color);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

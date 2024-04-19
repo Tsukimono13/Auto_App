@@ -3,23 +3,26 @@ import { HStack } from "@/components/Stack/HStack/HStack";
 import { TabItem, Tabs } from "@/components/Tabs/Tabs";
 import { Text, TextSize } from "@/components/Text/Text";
 import { useState } from "react";
-import cls from "./BrandFilter.module.scss";
+import cls from "./ColorFilter.module.scss";
 import { classNames } from "@/lib/classNames/classNames";
 
-interface BrandFilterType {
+interface ColorFilterType {
   className?: string;
   value: string;
   onChange: (value: string) => void;
 }
 
-const brandType = [
-  { value: "Mercedes" },
-  { value: "Audi" },
-  { value: "BMW" },
-  { value: "Opel" },
+const colorType = [
+  { value: "Серый металлик" },
+  { value: "Черный" },
+  { value: "Белый" },
+  { value: "Зеленый" },
+  { value: "Желтый" },
+  { value: "Красный" },
+  { value: "Синий" },
 ];
 
-const BrandFilter = (props: BrandFilterType) => {
+const ColorFilter = (props: ColorFilterType) => {
   const { className, onChange, value } = props;
 
   const onChangeHendler = (tab: TabItem) => {
@@ -30,14 +33,14 @@ const BrandFilter = (props: BrandFilterType) => {
     <HStack
       gap="8"
       max
-      className={classNames(cls.BrandFilter, {}, [className])}
+      className={classNames(cls.ColorFilter, {}, [className])}
     >
-      <Text title={"Марка:"} size={TextSize.S} />
+      <Text title={"Цвет:"} size={TextSize.S} />
       <HStack gap="6" max>
-        <Tabs tabs={brandType} onTabClick={onChangeHendler} value={value} />
+        <Tabs tabs={colorType} onTabClick={onChangeHendler} value={value} />
       </HStack>
     </HStack>
   );
 };
 
-export default BrandFilter;
+export default ColorFilter;
