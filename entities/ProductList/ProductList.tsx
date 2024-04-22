@@ -11,18 +11,24 @@ import cls from "./ProductList.module.scss";
 import { ProductListSkeleton } from "./ProductListSkeleton";
 import { BottomPagination } from "@/features/BottomPagination/BottomPagination";
 
-export const ProductList = () => {
-  const [items, setItems] = useState<ProductItem[]>([]);
+interface ProductListProps {
+  items: ProductItem[];
+}
+
+export const ProductList = (props: ProductListProps) => {
+  const { items } = props;
+  const [sortedItems, setSortedItems] = useState<ProductItem[]>(items);
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState("");
   const [sort, setSort] = useState("");
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const sortedItems = await fetchSortItems(brand, color, sort, page);
-      setItems(sortedItems);
+      setSortedItems(sortedItems);
+      setIsLoading(false);
     }
     fetchData();
   }, [brand, color, sort, page]);
@@ -31,7 +37,7 @@ export const ProductList = () => {
     try {
       setIsLoading(true);
       const sortedItems = await fetchSortItems(brand);
-      setItems(sortedItems);
+      setSortedItems(sortedItems);
       setBrand(brand);
       setIsLoading(false);
     } catch (error) {
@@ -44,7 +50,7 @@ export const ProductList = () => {
     try {
       setIsLoading(true);
       const sortedItems = await fetchSortItems(color);
-      setItems(sortedItems);
+      setSortedItems(sortedItems);
       setColor(color);
       setIsLoading(false);
     } catch (error) {
@@ -57,7 +63,7 @@ export const ProductList = () => {
     try {
       setIsLoading(true);
       const sortedItems = await fetchSortItems(sort);
-      setItems(sortedItems);
+      setSortedItems(sortedItems);
       setSort(sort);
       setIsLoading(false);
     } catch (error) {
@@ -70,7 +76,7 @@ export const ProductList = () => {
     try {
       setIsLoading(true);
       const sortedItems = await fetchSortItems(pageNumber.toString());
-      setItems(sortedItems);
+      setSortedItems(sortedItems);
       setPage(pageNumber);
       setIsLoading(false);
     } catch (error) {
@@ -98,7 +104,7 @@ export const ProductList = () => {
               className={cls.colorFilter}
             />
             <HStack wrap max gap="24">
-              {items.map((item: ProductItem) => (
+              {sortedItems.map((item: ProductItem) => (
                 <ProductItemCard item={item} key={item.id} />
               ))}
             </HStack>
