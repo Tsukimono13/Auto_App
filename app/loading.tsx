@@ -1,5 +1,5 @@
-import { Loader } from "@/components/Loader/Loader";
+import { ProductListSkeleton } from "@/entities/ProductList/ProductListSkeleton";
 
 export default function LoadingItems() {
-    return <Loader />
+  return <ProductListSkeleton />
 }

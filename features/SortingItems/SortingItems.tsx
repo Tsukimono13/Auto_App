@@ -1,5 +1,6 @@
 import { ListBox } from '@/components/ListBox/ListBox';
 import { classNames } from '@/lib/classNames/classNames';
+import { options } from '@/lib/const/sortOptions';
 import React from 'react';
 
 interface SortingItemsProps {
@@ -7,13 +8,6 @@ interface SortingItemsProps {
     value?: string;
     onChange?: (value: string) => void;
 }
-
-const options = [
-    { value: "asc", content: "По цене: сначала дорогие" },
-    { value: "desc", content: "По цене: сначала дешевые" },
-    { value: "newest", content: "По году выпуска: сначала новые" },
-    { value: "oldest", content: "По году выпуска: сначала старые" },
-];
 
 export const SortingItems = (props: SortingItemsProps) => {
     const {

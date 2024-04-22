@@ -2,9 +2,9 @@ import { HStack } from "@/components/Stack/HStack/HStack";
 import { VStack } from "@/components/Stack/VStack/VStack";
 import { ProductItem } from "@/lib/types/item";
 import Image from "next/image";
-import Link from "next/link";
 import cls from "./DetailedProductItem.module.scss";
 import { Text, TextSize, TextTheme } from "@/components/Text/Text";
+import { classNames } from "@/lib/classNames/classNames";
 
 interface DetailedProductItemProps {
   className?: string;
@@ -15,25 +15,27 @@ export const DetailedProductItem = (props: DetailedProductItemProps) => {
   const { item, className } = props;
   return (
     <>
-      <Link href={"/"}>
-        <Image
-          src="/assets/icons/back.svg"
-          height={24}
-          width={24}
-          alt="Return back"
-          className={cls.icon}
-        />
-      </Link>
-      <HStack max justify="between" align="start">
+      <HStack
+        max
+        justify="between"
+        align="start"
+        className={classNames(cls.DetailedProductItem, {}, [className])}
+      >
         <VStack>
           <Text title={item.title} size={TextSize.XL} />
           <Text
-            text={item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽'}
+            text={
+              item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽"
+            }
             size={TextSize.XL}
             theme={TextTheme.ACCENT}
             marginT={12}
           />
-          <Text title="Характеристики" size={TextSize.L} className={cls.characteristics} />
+          <Text
+            title="Характеристики"
+            size={TextSize.L}
+            className={cls.characteristics}
+          />
           <Text
             title="Бренд:"
             text={item.brand}

@@ -6,6 +6,8 @@
   --secondary-color: rgba(29, 92, 186, 1);
   --additional-color: rgba(149, 156, 168, 1);
   --hover-card-color: rgba(241, 242, 248, 1);
+  --skeleton-shadow: #ded4d4c2;
+  --scroll-color: rgba(214, 216, 224, 1);
 
   /* size */
   --navbar-height: 80px;
@@ -17,11 +19,6 @@
   margin: 0;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 body {
   color: var(--primary-color);
 }
@@ -29,4 +26,23 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scroll-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--additional-color);
 }

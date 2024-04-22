@@ -1,77 +1,83 @@
 "use client";
-import { Card, CardTheme } from "@/components/Card/Card";
 import { Input } from "@/components/Input/Input";
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState } from "react";
 import cls from "./AdsForm.module.scss";
 import { Text, TextSize } from "@/components/Text/Text";
 import { FileUpload } from "@/widgets/FileUpload/FileUpload";
-import Link from "next/link";
-import Image from "next/image";
 import { Button, ThemeButton } from "@/components/Button/Button";
-import { EngineType, TransmissionType } from "@/lib/types/item";
-
-interface FormData {
-  color: string;
-  content: string;
-  author: string;
-}
+import { ListBox } from "@/components/ListBox/ListBox";
+import { createAdvertisement } from "@/services/createAdvertisement/createAdvertisement";
+import { optionsEngine, optionstransmission } from "@/lib/const/adsOptions";
 
 export const AdsForm = () => {
   const [color, setColor] = useState("");
   const [file, setFile] = useState("");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
-  const [price, setPrice] = useState(0);
-  const [year, setYear] = useState(0);
-  const [engine, setEngine] = useState<EngineType>("Бензин");
-  const [transmission, setTransmission] = useState<TransmissionType>("Автомат");
-  const [power, setpower] = useState("");
+  const [price, setPrice] = useState<number | null>(null);
+  const [year, setYear] = useState<number | null>(null);
+  const [engine, setEngine] = useState("Бензин");
+  const [transmission, setTransmission] = useState("Автомат");
+  const [power, setPower] = useState("");
 
-  //   const sendDataToBackend = async (color: string, file: string) => {
-  //     try {
-  //       const response = await axios.post('/your-backend-endpoint', { color, file });
-  //       console.log('Data sent successfully:', response.data);
-  //       // Handle success, if needed
-  //     } catch (error) {
-  //       console.error('Error sending data:', error);
-  //       // Handle error, if needed
-  //     }
-  //   };
-
-  // const handleSubmit = () => {
-  //     sendDataToBackend(color, file);
-  //   };
+  const handleSubmit = () => {
+    const advertisementData = {
+      id: Date.now().toString(),
+      title: brand,
+      color,
+      img: { small: file, big: file },
+      brand,
+      model,
+      price: Number(price),
+      year: Number(year),
+      engine: {
+        type: engine,
+        transmission: transmission,
+        power: power,
+      },
+    };
+    console.log(advertisementData);
+    createAdvertisement(advertisementData);
+  };
 
   const onChangeColor = (value: string) => {
     setColor(value);
   };
 
   const onChangeFile = (value: string) => {
-    console.log(value);
     setFile(value);
   };
 
   const onChangeBrand = (value: string) => {
-    console.log(value);
     setBrand(value);
   };
 
   const onChangeModel = (value: string) => {
-    console.log(value);
     setModel(value);
+  };
+
+  const onChangeYear = (value: string) => {
+    setYear(parseInt(value));
+  };
+
+  const onChangeEngine = (value: string) => {
+    setEngine(value);
+  };
+
+  const onChangePower = (value: string) => {
+    setPower(value);
+  };
+
+  const onChangeTransmission = (value: string) => {
+    setTransmission(value);
+  };
+
+  const onChangePrice = (value: string) => {
+    setPrice(parseInt(value));
   };
 
   return (
     <>
-      <Link href={"/"}>
-        <Image
-          src="/assets/icons/back.svg"
-          height={24}
-          width={24}
-          alt="Return back"
-          className={cls.icon}
-        />
-      </Link>
       <Text title="Разместить объявление" size={TextSize.XL} />
       <Text title="Внешний вид" size={TextSize.L} className={cls.view} />
       <FileUpload value={file} onChange={onChangeFile} />
@@ -102,10 +108,56 @@ export const AdsForm = () => {
         placeholder="EQS Sedan"
       />
       <Text text={"Год выпуска"} className={cls.subtitle} />
+      <Input
+        className={cls.input}
+        type="number"
+        value={year?.toString()}
+        onChange={onChangeYear}
+        placeholder="2024"
+      />
       <Text text={"Тип двигателя"} className={cls.subtitle} />
-      <Text text={"Трансмиссия"} className={cls.subtitle} />
-      <Text text={"Запас хода, км"} className={cls.subtitle} />
-      <Button theme={ThemeButton.SECONDARY}>Сохранить и разместить</Button>
+      <ListBox
+        items={optionsEngine}
+        value={engine}
+        onChange={onChangeEngine}
+        className={cls.select}
+      />
+      {engine === "Электрический" ? (
+        <>
+          <Text text={"Запас хода:"} className={cls.subtitle} />
+          <Input
+            value={power}
+            onChange={onChangePower}
+            className={cls.input}
+            placeholder="Запас хода, км"
+          />
+        </>
+      ) : (
+        <>
+          <Text text={"Трансмиссия"} className={cls.subtitle} />
+          <ListBox
+            items={optionstransmission}
+            value={transmission}
+            onChange={onChangeTransmission}
+            className={cls.select}
+          />
+        </>
+      )}
+      <Text text={"Цена, руб."} className={cls.price} />
+      <Input
+        value={price?.toString()}
+        type="number"
+        onChange={onChangePrice}
+        className={cls.input}
+        placeholder="9 999 999"
+      />
+      <Button
+        theme={ThemeButton.SECONDARY}
+        className={cls.btn}
+        onClick={handleSubmit}
+      >
+        Сохранить и разместить
+      </Button>
     </>
   );
 };

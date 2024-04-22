@@ -15,7 +15,7 @@ export const ProductItemCard = (props: ProductItemCardProps) => {
   const { className, item } = props;
   return (
     <Link href={`/${item.id}`}>
-      <Card className={classNames(cls.card, {}, [className])} >
+      <Card className={classNames(cls.card, {}, [className])}>
         <Image
           src={item?.img?.small}
           alt={item.title}
@@ -24,7 +24,9 @@ export const ProductItemCard = (props: ProductItemCardProps) => {
         />
         <Text
           title={`${item.title}, ${item.year}`}
-          text={item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽'}
+          text={
+            item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽"
+          }
           size={TextSize.M}
           className={cls.content}
         />

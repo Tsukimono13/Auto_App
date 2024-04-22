@@ -3,7 +3,6 @@ import { Listbox as HListBox } from "@headlessui/react";
 import cls from "./ListBox.module.scss";
 import { HStack } from "../Stack/HStack/HStack";
 import { classNames } from "@/lib/classNames/classNames";
-import { Button, ThemeButton } from "../Button/Button";
 import Image from "next/image";
 
 export interface ListBoxItem {
@@ -38,17 +37,13 @@ export function ListBox(props: ListBoxProps) {
         onChange={onChange}
       >
         <HListBox.Button className={cls.trigger}>
-          {/* <Button theme={ThemeButton.CLEAR} className={cls.btn}> */}
             {value ? items?.find(item => item.value === value)?.content : defaultValue}
-            {sort && (
               <Image
                 src={"/assets/icons/caret-down.svg"}
                 width={24}
                 height={24}
                 alt={"Down arrow"}
               />
-            )}
-          {/* </Button> */}
         </HListBox.Button>
         <HListBox.Options className={classNames(cls.options, {}, [])}>
           {items?.map((item) => (

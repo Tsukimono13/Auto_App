@@ -1,9 +1,19 @@
+.DetailedProductItem {
+    img {
+        border-radius: 8px;
+    }
+}
+
 .icon {
     margin-bottom: 32px;
 
     &:hover {
         opacity: 0.5;
     }
+}
+
+.price {
+    margin-top: 12px;
 }
 
 .characteristics {
